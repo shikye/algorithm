@@ -11,3 +11,9 @@ main.o:main.c
 
 sequence.o:sequence.c
 	gcc -g -c $(sequence_path)/sequence.c -I $(sequence_path) -I . -o sequence.o
+
+
+.PHONY:clean
+
+clean:
+	rm *.o a.out

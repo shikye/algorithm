@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "sequence.h"
+#include "debug.h"
 
 int main()
 {
