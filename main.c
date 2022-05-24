@@ -2,18 +2,18 @@
 #include <stdlib.h>
 #include "sequence.h"
 #include "linklist.h"
+#include "Stack_line.h"
+#include "Stack_linked.h"
 #include "debug.h"
 
 int main()
 {
-    Linked_Ptr head = MakeEmpty_linked();
-
-    Insert_linked(1,head,10);
-    Insert_linked(1,head,20);
-    int a = Delete_linked(1,head);
-    printf("%d\n",a);
-    a = FindKth(1,head) -> Data;
-    printf("%d\n",a);
+    Stack_linked_Ptr Ptr = MakeEmpty_Stack_Linked();
+    Push_linked(Ptr,10);
+    Push_linked(Ptr,20);
+    Push_linked(Ptr,30);    
+    int a = Pop_linked(Ptr);
+    printf("%d",a);
     return 0;
 
 }

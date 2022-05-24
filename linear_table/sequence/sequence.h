@@ -1,16 +1,14 @@
-
-
 #define MAXSIZE 100
 #define ElementType int
 
-struct Lnode{
+struct Seq_node{
     ElementType Data[MAXSIZE];
     int Last;
 };
 
-typedef struct Lnode seqnode,*List;
+typedef struct Seq_node Seqnode,*Seq_Ptr;
 
-List MakeEmpty();
-int FindPosition(ElementType X,List PtrL);
-void Insert(ElementType X, int i, List PtrL); //i表示位置而不是下标
-ElementType Delete(int i, List PtrL);
+Seq_Ptr MakeEmpty_seq();
+int FindPosition(ElementType X,Seq_Ptr PtrL);
+void Insert_seq(ElementType X, int i, Seq_Ptr PtrL); //i表示位置而不是下标
+ElementType Delete_seq(int i, Seq_Ptr PtrL);

@@ -7,15 +7,15 @@
 
 
 
-List MakeEmpty()
+Seq_Ptr MakeEmpty_seq()
 {
-    List PtrL;
-    PtrL = (List)malloc(sizeof(seqnode));
+    Seq_Ptr PtrL;
+    PtrL = (Seq_Ptr)malloc(sizeof(Seqnode));
     PtrL -> Last = -1;
     return PtrL;
 }
 
-int FindPosition(ElementType X,List PtrL)
+int FindPosition(ElementType X,Seq_Ptr PtrL)
 {
     int i = 0;
     while(i <= PtrL -> Last && X != PtrL -> Data[i]){
@@ -30,7 +30,7 @@ int FindPosition(ElementType X,List PtrL)
         return i;
 }
 
-void Insert(ElementType X, int i, List PtrL) //i表示位置而不是下标
+void Insert_seq(ElementType X, int i, Seq_Ptr PtrL) //i表示位置而不是下标
 {
     int j;
     if(PtrL -> Last == MAXSIZE - 1)
@@ -44,7 +44,7 @@ void Insert(ElementType X, int i, List PtrL) //i表示位置而不是下标
     PtrL->Last++;
 }
 
-ElementType Delete(int i, List PtrL)
+ElementType Delete_seq(int i, Seq_Ptr PtrL)
 {
     int j;
     ElementType swap;
