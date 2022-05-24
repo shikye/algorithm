@@ -25,10 +25,9 @@ Linked_Ptr FindKth(int K, Linked_Ptr Ptr)
 {
     Linked_Ptr L = Ptr;
     if(K < 1)
-        panic("backover");
+        ;
     while(K>0){
-        if(L->Next == NULL){
-            panic("FindKth over");
+        if(L->Next == NULL){;
             return NULL;
         }
         L = L->Next;
@@ -50,7 +49,7 @@ void Insert_linked(int i, Linked_Ptr Ptr, ElementType X) //Ptr是头结点
 
     Linked_Ptr loc = FindKth(i-1,Ptr);
     if(!loc){
-        panic("Insert Loc Wrong");
+        ;
     }
     Linked_Ptr new = (Linked_Ptr)malloc(sizeof(Linkednode));
     new -> Next = loc ->Next;
@@ -72,7 +71,7 @@ ElementType Delete_linked(int i, Linked_Ptr Ptr)
 
     Linked_Ptr p_pre = FindKth(i-1,Ptr);
     if(!p_pre)
-        panic("Delete Over");
+        ;
     else{
         p_pre -> Next = p -> Next;
         swap = p -> Data;

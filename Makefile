@@ -1,32 +1,29 @@
-VPATH:=linear_table/sequence:linear_table/linked_list:linear_table/Stack_seq:linear_table/Stack_linked
-sequence_path=./linear_table/sequence
-linked_path=./linear_table/linked_list
-stack_line_path=./linear_table/Stack_seq
-stack_linked_path=./linear_table/Stack_linked
+CC=gcc
+SUBDIRS=$(shell ls -l | grep ^d | awk '{if($$9 != "debug") print $$9}')
+ROOT_DIR=$(shell pwd)
+BIN=a.out
+OBJS_DIR=debug/obj
+BIN_DIR=debug/bin
+CUR_SOURCE=$(wildcard *.c)
+CUR_OBJS=$(patsubst %.c, %.o, $(CUR_SOURCE))
+INC=$(addprefix -I , $(SUBDIRS))
+export CC BIN OBJS_DIR BIN_DIR ROOT_DIR
 
+all:$(SUBDIRS) $(CUR_OBJS) DEBUG
 
-.PHONY: out main.o sequence.o linklist.o
+$(SUBDIRS):ECHO
+	make -C $@
 
-out: main.o sequence.o linklist.o Stack_line.o Stack_linked.o
-	gcc -g main.o sequence.o linklist.o Stack_line.o Stack_linked.o -o a.out 
+DEBUG:ECHO
+	make -C debug
 
-main.o:main.c
-	gcc -g -c main.c -I $(sequence_path) -I $(linked_path) -I $(stack_line_path) -I $(stack_linked_path) -I . -o main.o
+ECHO:
+	@echo $(SUBDIRS)
 
-sequence.o:sequence.c
-	gcc -g -c $(sequence_path)/sequence.c -I $(sequence_path) -I . -o sequence.o
-
-linklist.o:linklist.c
-	gcc -g -c $(linked_path)/linklist.c -I $(linked_path) -I . -o linklist.o
-
-Stack_line.o:Stack_line.c
-	gcc -g -c $(stack_line_path)/Stack_line.c -I $(stack_line_path) -I . -o Stack_line.o
-
-Stack_linked.o:Stack_linked.c
-	gcc -g -c $(stack_linked_path)/Stack_linked.c -I $(stack_linked_path) -I . -o Stack_linked.o
-
-
-.PHONY:clean
+$(CUR_OBJS):%.o:%.c
+	$(CC) -c $^  $(INC) -o $(ROOT_DIR)/$(OBJS_DIR)/$@ 
 
 clean:
-	rm *.o a.out
+	@rm $(OBJS_DIR)/*.o
+	@rm -rf $(BIN_DIR)/*
+

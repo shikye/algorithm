@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "debug.h"
 #include "sequence.h"
 
 
@@ -23,7 +22,6 @@ int FindPosition(ElementType X,Seq_Ptr PtrL)
     }
     if(i > PtrL -> Last){
         return -1;
-        panic("FindPosition Error");
     }
         
     else 
@@ -34,9 +32,9 @@ void Insert_seq(ElementType X, int i, Seq_Ptr PtrL) //i表示位置而不是下�
 {
     int j;
     if(PtrL -> Last == MAXSIZE - 1)
-        panic("Insert Full");
+        ;
     else if(i<1 || i>PtrL->Last + 2)
-        panic("Insert Place Wrong");
+        ;
     
     for(j = PtrL -> Last; j>=i-1;j--)
         PtrL->Data[j+1] = PtrL->Data[j];
@@ -50,7 +48,6 @@ ElementType Delete_seq(int i, Seq_Ptr PtrL)
     ElementType swap;
     if(i<1 || i>PtrL->Last + 1)
     {
-        panic("Delete Wrong Place");
         return -1;
     }
     swap = PtrL->Data[i-1];

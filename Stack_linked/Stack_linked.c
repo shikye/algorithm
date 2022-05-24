@@ -1,5 +1,4 @@
 #include "Stack_linked.h"
-#include "debug.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -22,7 +21,7 @@ void Push_linked(Stack_linked_Ptr Ptr, ElementType Data)
 ElementType Pop_linked(Stack_linked_Ptr Ptr)
 {
     if(Ptr -> Next == NULL)
-        panic("Pop_linked Wrong");
+        return -1;
     else{
         Stack_linked_Ptr pop = Ptr -> Next;
         ElementType swap;
