@@ -5,10 +5,12 @@
 void CreateTree_Bin(TreeNode_Ptr *Ptr) //传二级指针，因为int型指针能改变外部int的值，类似的，指针的指针能改变指针的值，
                                         //即，若想改变一级指针的值，则应该传二级指针。
 {
-    int data;
-    scanf("%d",&data);
+    char data;
+    scanf("%c",&data);
+    if(data == '\n')
+        scanf("%c\n",&data);
     TreeNode_Ptr root;
-    if(data == -1)
+    if(data == '#')
     {
         *Ptr = NULL;
     }
