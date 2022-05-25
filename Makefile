@@ -1,29 +1,24 @@
 CC=gcc
-SUBDIRS=$(shell ls -l | grep ^d | awk '{if($$9 != "debug") print $$9}')
 ROOT_DIR=$(shell pwd)
+SRC=$(wildcard $(ROOT_DIR)/src/*.c)
+SRC_PATH=$(ROOT_DIR)/src
+OBJ_file=$(patsubst %.c,%.o, $(notdir $(SRC)))
+OBJ=$(addprefix $(OBJS_DIR)/,$(OBJ_file))
 BIN=a.out
-OBJS_DIR=debug/obj
-BIN_DIR=debug/bin
-CUR_SOURCE=$(wildcard *.c)
-CUR_OBJS=$(patsubst %.c, %.o, $(CUR_SOURCE))
-INC=$(addprefix -I , $(SUBDIRS))
-export CC BIN OBJS_DIR BIN_DIR ROOT_DIR
+OBJS_DIR=$(ROOT_DIR)/debug/obj
+BIN_DIR=$(ROOT_DIR)/debug/bin
+INC=$(addprefix -I , $(ROOT_DIR)/include)
 
-all:$(SUBDIRS) $(CUR_OBJS) DEBUG
 
-$(SUBDIRS):ECHO
-	make -C $@
+all: $(OBJ_file) main
 
-DEBUG:ECHO
-	make -C debug
+$(OBJ_file):%.o:$(SRC_PATH)/%.c
+	$(CC) -c $< $(INC) -o $(OBJS_DIR)/$@
 
-ECHO:
-	@echo $(SUBDIRS)
+main:$(OBJ)
+	$(CC) $^ -o $(BIN_DIR)/$(BIN)
 
-$(CUR_OBJS):%.o:%.c
-	$(CC) -c $^  $(INC) -o $(ROOT_DIR)/$(OBJS_DIR)/$@ 
 
-clean:
-	@rm $(OBJS_DIR)/*.o
-	@rm -rf $(BIN_DIR)/*
+
+
 
