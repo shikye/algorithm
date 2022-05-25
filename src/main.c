@@ -7,20 +7,11 @@
 #include "debug.h"
 #include "queue_line.h"
 #include "queue_linked.h"
+#include "bin_tree.h"
 
 int main()
 {
-    Quque_linked_Ptr Ptr = MakeEmpty_Queue_linked();
-    AddQ_linked(Ptr,10);
-    AddQ_linked(Ptr,20);
-    AddQ_linked(Ptr,30);
-    AddQ_linked(Ptr,40);   
-    DeleteQ_linked(Ptr);
-    DeleteQ_linked(Ptr);
-    DeleteQ_linked(Ptr);
-
-    int a = DeleteQ_linked(Ptr);
-    printf("%d",a);
+    TreeNode_Ptr node;
+    CreateTree_Bin(&node);
     return 0;
-
 }
