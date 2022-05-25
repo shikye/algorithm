@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "debug.h": "c",
-        "stack_line.h": "c"
+        "stack_line.h": "c",
+        "queue_linked.h": "c"
     }
 }

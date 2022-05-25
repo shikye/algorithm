@@ -13,10 +13,10 @@ INC=$(addprefix -I , $(ROOT_DIR)/include)
 all: $(OBJ_file) main
 
 $(OBJ_file):%.o:$(SRC_PATH)/%.c
-	$(CC) -c $< $(INC) -o $(OBJS_DIR)/$@
+	$(CC) -c -g $< $(INC) -o $(OBJS_DIR)/$@
 
 main:$(OBJ)
-	$(CC) $^ -o $(BIN_DIR)/$(BIN)
+	$(CC) $^ -g -o $(ROOT_DIR)/a.out
 
 
 
