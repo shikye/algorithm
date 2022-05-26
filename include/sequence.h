@@ -1,5 +1,5 @@
 #define MAXSIZE 100
-#define ElementType int
+#include "top.h"
 
 struct Seq_node{
     ElementType Data[MAXSIZE];

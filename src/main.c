@@ -13,5 +13,6 @@ int main()
 {
     TreeNode_Ptr node;
     CreateTree_Bin(&node);
+    PreOrderTravserse_Stack(node,PrintData);
     return 0;
 }

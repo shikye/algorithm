@@ -1,5 +1,5 @@
 #define MaxSize 100
-#define ElementType int
+#include "top.h"
 
 
 typedef struct Stack_Seq *Stack_Seq_Ptr;

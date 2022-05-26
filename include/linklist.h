@@ -1,4 +1,4 @@
-#define ElementType int
+#include "top.h"
 
 
 typedef struct Linked_node *Linked_Ptr,Linkednode;

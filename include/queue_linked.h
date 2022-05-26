@@ -1,4 +1,4 @@
-#define ElementType int
+#include "top.h"
 
 
 typedef struct Queue_linked_node *Queue_node_Ptr;

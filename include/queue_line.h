@@ -1,5 +1,5 @@
 #define MaxSize 100
-#define ElementType int
+#include "top.h"
 
 
 typedef struct Queue_Seq *Queue_Seq_Ptr;
