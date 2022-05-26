@@ -4,14 +4,14 @@
 #include "bin_tree.h"
 #include "Stack_linked.h"
 
-char *string = "11##2##";
+char *string_bin_tree = "11##2##";
 
 void CreateTree_Bin(TreeNode_Ptr *Ptr) //传二级指针，因为int型指针能改变外部int的值，类似的，指针的指针能改变指针的值，
                                         //即，若想改变一级指针的值，则应该传二级指针。
 {
     char data[2];
-    strncpy(data,string,1);
-    string = string + 1;
+    strncpy(data,string_bin_tree,1);
+    string_bin_tree = string_bin_tree + 1;
     TreeNode_Ptr root;
     if(data[0] == '#')
     {

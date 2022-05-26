@@ -8,11 +8,13 @@
 #include "queue_line.h"
 #include "queue_linked.h"
 #include "bin_tree.h"
+#include "threaded_bin_tree.h"
 
 int main()
 {
-    TreeNode_Ptr node;
-    CreateTree_Bin(&node);
-    PreOrderTravserse_Stack(node,PrintData);
+    Threaded_treeNode_Ptr node;
+    CreateTree_treaded(&node);
+    InThreading(node);
+    InOrderTraverse_threaded(node,visit_threaded);
     return 0;
 }
