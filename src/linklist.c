@@ -10,7 +10,7 @@ Linked_Ptr MakeEmpty_linked() //返回头结点指针
     return head;
 }
  
-int Length(Linked_Ptr Ptr) //Ptr为头节点
+int Length(Linked_Ptr Ptr) //Ptr为头结点
 {
     Linked_Ptr L = Ptr;
     int j = 0;
